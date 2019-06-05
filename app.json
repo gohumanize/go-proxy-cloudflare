@@ -1,12 +1,11 @@
 {
-  "name": "Start on Heroku: Go",
-  "description": "Go Getting Started Example App",
+  "name": "Proxy Server for CloudFlare",
+  "description": "Go Proxy",
   "keywords": [
-    "getting-started",
     "go",
     "sample",
     "example"
   ],
-  "website": "http://github.com/heroku/go-getting-started",
-  "repository": "http://github.com/heroku/go-getting-started"
+  "website": "http://github.com/gohumanize/go-proxy-cloudflare",
+  "repository": "http://github.com/gohumanize/go-proxy-cloudflare"
 }
