@@ -6,6 +6,7 @@ import (
   "log"
   "net/http"
 	"os"
+	"io/ioutil"
 )
 
 var (
@@ -36,6 +37,13 @@ func main() {
       log.Printf("upload error: %v\n", err)
       http.Error(w, "could not upload", http.StatusInternalServerError)
       return
+    } else{
+			bodyBytes, err := ioutil.ReadAll(resp.Body)
+			if err != nil {
+					log.Fatal(err)
+			}
+			bodyString := string(bodyBytes)
+			log.Printf("%s\n", bodyString)
     }
 
     // copy headers to client
@@ -55,6 +63,7 @@ func main() {
 
 func GetPort() string {
   var port = os.Getenv("PORT")
+  fmt.Println("Starting server on port " + port)
   if port == "" {
     port = "4747"
     fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
