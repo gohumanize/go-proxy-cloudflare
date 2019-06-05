@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	authKey   = os.Getenv("CLOUDLARE_AUTH_KEY")
+	authKey   = os.Getenv("CLOUDFLARE_AUTH_KEY")
 	authEmail = os.Getenv("CLOUDFLARE_AUTH_EMAIL")
 	accountID    = os.Getenv("CLOUDFLARE_ACCOUNT_ID")
 )
