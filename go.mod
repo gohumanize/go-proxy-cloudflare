@@ -1,4 +1,4 @@
-module github.com/heroku/go-getting-started
+module github.com/heroku/go-proxy-cloudflare
 
 go 1.11
 
