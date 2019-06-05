@@ -49,5 +49,14 @@ func main() {
   })
 
   // listen on localhost:8000
-  log.Fatal(http.ListenAndServe(":8000", nil))
+  log.Fatal(http.ListenAndServe(GetPort(), nil))
+}
+
+func GetPort() string {
+  var port = os.Getenv("PORT")
+  if port == "" {
+    port = "4747"
+    fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
+  }
+  return ":" + port
 }
