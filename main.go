@@ -45,6 +45,7 @@ func main() {
 
     // copy response to client
     io.Copy(w, resp.Body)
+    resp.Header.Add("Access-Control-Allow-Origin", "*")
     defer resp.Body.Close()
   })
 
