@@ -17,6 +17,14 @@ var (
 
 func main() {
   http.HandleFunc("/upload", func(w http.ResponseWriter, r *http.Request) {
+			w.Header().Set("Access-Control-Allow-Origin", "*")
+			w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+			w.Header().Set("Access-Control-Allow-Headers", "Accept, Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization")
+
+		if r.Method == "OPTIONS" {
+			return
+		}
+
     if r.Method != http.MethodPost {
       http.Error(w, "invalid method, requires post", http.StatusBadRequest)
       return
@@ -53,7 +61,6 @@ func main() {
 
     // copy response to client
     io.Copy(w, resp.Body)
-    resp.Header.Add("Access-Control-Allow-Origin", "*")
     defer resp.Body.Close()
   })
 
