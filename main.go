@@ -6,7 +6,6 @@ import (
   "log"
   "net/http"
   "os"
-  "io/ioutil"
 )
 
 var (
@@ -50,13 +49,6 @@ func main() {
         http.Error(w, "could not upload", resp.StatusCode)
         return
       }
-
-      bodyBytes, err := ioutil.ReadAll(resp.Body)
-      if err != nil {
-        log.Fatal(err)
-      }
-      bodyString := string(bodyBytes)
-      log.Printf("%s\n", bodyString)
     }
 
     // copy headers to client
